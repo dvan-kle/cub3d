@@ -6,25 +6,11 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:24:32 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/04/25 00:24:39 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/15 17:18:18 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
-
-typedef struct s_ray_info
-{
-	double	ystep;
-	double	xstep;
-	double	next_horz_touch_x;
-	double	next_horz_touch_y;
-}	t_ray_info;
-
-typedef struct s_intercept
-{
-	double	yintercept;
-	double	xintercept;
-}	t_intercept;
 
 void	cub_init_horz_ray_info(t_mlx *mlx, t_ray *ray, t_ray_info *info)
 {

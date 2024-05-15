@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 11:52:59 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 15:08:57 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/15 18:33:02 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,42 @@ typedef struct s_mlx
 	t_ray		*ray;
 }	t_mlx;
 
+typedef struct s_ray_info
+{
+	double	ystep;
+	double	xstep;
+	double	next_horz_touch_x;
+	double	next_horz_touch_y;
+}	t_ray_info;
+
+typedef struct s_intercept
+{
+	double	yintercept;
+	double	xintercept;
+}	t_intercept;
+
+typedef struct s_vert_ray_info
+{
+	double	xstep_vert;
+	double	ystep_vert;
+	double	next_vert_touch_x;
+	double	next_vert_touch_y;
+}	t_vert_ray_info;
+
+typedef struct s_vert_intercept
+{
+	double	xintercept_vert;
+	double	yintercept_vert;
+}	t_vert_intercept;
+
+typedef struct s_player_start_info
+{
+	int		count;
+	int		x;
+	int		y;
+	char	direction;
+}	t_player_start_info;
+
 // Map:
 void			cub_is_cub_extension(char *file);
 int				cub_validate_map(t_map *map);
@@ -148,7 +184,7 @@ void			cub_calculate_wall_position_and_height(t_mlx *mlx, t_ray *ray);
 void			*allocate_memory(size_t buffer_size);
 void			*memory_realloc(void *ptr, size_t new_size);
 void			free_memory(void *buffer);
-void			cub_handle_error(int exit_code, char *message);
+void			cub_error(int exit_code, char *message);
 void			cub_exit(t_mlx *mlx);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 13:52:17 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 13:51:23 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/15 18:33:35 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*allocate_memory(size_t buffer_size)
 
 	buffer = (void *)malloc(buffer_size);
 	if (!buffer)
-		cub_handle_error(-1, "Error: Malloc failed to allocate memory.");
+		cub_error(-1, "Error: Malloc failed to allocate memory.");
 	return (buffer);
 }
 
