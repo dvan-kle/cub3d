@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:52:36 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 15:21:06 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/15 15:47:38 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	cub_process_lines(int fd, t_map *map)
 	line = get_next_line(fd);
 	while (line)
 	{
-		if (!is_map_line && (line[0] == '1'))
+		if (!is_map_line && (line[0] == '1' || line[0] == ' '))
 			is_map_line = 1;
 		if (!is_map_line)
 		{
