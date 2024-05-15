@@ -1,6 +1,9 @@
 # Program
 cub3D
 
+# Makefile
+Makefile
+
 # Object files, which are generated when you compile C
 *.o
 *.obj

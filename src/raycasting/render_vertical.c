@@ -6,25 +6,11 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:24:00 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/04/25 00:24:07 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/15 17:19:26 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
-
-typedef struct s_vert_ray_info
-{
-	double	xstep_vert;
-	double	ystep_vert;
-	double	next_vert_touch_x;
-	double	next_vert_touch_y;
-}	t_vert_ray_info;
-
-typedef struct s_vert_intercept
-{
-	double	xintercept_vert;
-	double	yintercept_vert;
-}	t_vert_intercept;
 
 void	cub_init_vert_ray_info(t_mlx *mlx, t_ray *ray, t_vert_ray_info *info)
 {

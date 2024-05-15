@@ -6,32 +6,18 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/15 10:38:05 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/04/04 14:38:28 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/15 18:37:17 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-typedef struct s_player_start_info
-{
-	int		count;
-	int		x;
-	int		y;
-	char	direction;
-}	t_player_start_info;
-
 void	cub_decide_if_player_error(int count)
 {
 	if (count == 0)
-	{
-		printf("Error\nMissing player start position.\n");
-		exit(1);
-	}
+		cub_error(1, "Error: Missing player start position.\n");
 	else if (count > 1)
-	{
-		printf("Error\nMultiple player start positions detected.\n");
-		exit(1);
-	}
+		cub_error(1, "Error: Multiple player start positions detected.\n");
 	else
 		return ;
 }

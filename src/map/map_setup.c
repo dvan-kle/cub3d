@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 12:20:59 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 14:47:23 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/15 18:48:40 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,7 @@ int	cub_setup_map_checks(t_map *map, t_check_map *check_map)
 	check_map->field = (char **)allocate_memory(sizeof(char *)
 			* check_map->height);
 	if (!check_map->field)
-	{
-		printf("Error\nPrevented memory error.");
-		exit(1);
-	}
+		cub_error(1, "Error: Prevented memory error.\n");
 	cub_set_dots(map, check_map);
 	return (0);
 }
