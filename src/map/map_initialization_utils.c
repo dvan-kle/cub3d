@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:51:31 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 16:11:01 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/15 16:43:08 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ void	cub_allocate_map_field(t_map *map)
 		exit(1);
 	}
 }
+void	free_ids(t_map *map)
+{
+	free(map->id_no);
+	free(map->id_so);
+	free(map->id_we);
+	free(map->id_ea);
+	free(map->id_f);
+	free(map->id_c);
+}
 
 void	cub_finalize_map(t_map *map, int height, int max_width)
 {
@@ -52,6 +61,7 @@ void	cub_finalize_map(t_map *map, int height, int max_width)
 	map->pixel_width_per_square = TILE_SIZE;
 	map->pixel_height_per_square = TILE_SIZE;
 	map->tile_size = cub_get_tile_size(map);
+	free_ids(map);
 }
 
 int	cub_get_tile_size(t_map *map)
@@ -68,3 +78,4 @@ int	cub_get_tile_size(t_map *map)
 		tile_size = tile_height;
 	return (tile_size);
 }
+
