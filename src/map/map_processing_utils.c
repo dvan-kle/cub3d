@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:52:36 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 16:01:41 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/15 16:15:52 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,11 @@ void    cub_process_lines(int fd, t_map *map)
             free(line);
         }
         line = get_next_line(fd);
+    }
+	if (!map->id_no || !map->id_so || !map->id_we || !map->id_ea || !map->id_f || !map->id_c || !map->field)
+    {
+        printf("Error\nMap missing one or more identifier.\n");
+        exit(1);
     }
     cub_finalize_map(map, i, max_width);
 }
