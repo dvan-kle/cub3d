@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 11:52:59 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 14:33:33 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/16 23:39:27 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define SCREEN_HEIGHT 1000
 # define TILE_SIZE 64
 
-# define FOV 75
-# define ROTATION_SPEED 0.05235987755
+# define FOV 65
+# define ROTATION_SPEED 0.052
 # define PLAYER_SPEED 4
 
 typedef struct s_ray

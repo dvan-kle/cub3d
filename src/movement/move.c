@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 11:53:06 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/04/23 13:23:28 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/16 23:51:18 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int	cub_is_wall_hit(t_mlx *mlx, int map_grid_y, int map_grid_x)
 	return (0);
 }
 
+// calculates the new player position in pixels.
+// calculates the new player position in grid cells.
+// updates player position if not hitting a wall.
 void	cub_move_player(t_mlx *mlx, double move_x, double move_y)
 {
 	int	new_map_grid_y;
@@ -57,6 +60,7 @@ void	cub_rotate_player(t_mlx *mlx)
 	}
 }
 
+// calculates the movement amounts based on the players angle and speed.
 void	cub_player_update_frame(t_mlx *mlx, double move_x, double move_y)
 {
 	if (mlx->key->key_w_s == 'w')
