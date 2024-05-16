@@ -6,12 +6,11 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:50:42 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 15:19:15 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/16 21:16:30 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
-
 
 int	cub_rgb_to_hex(int r, int g, int b)
 {

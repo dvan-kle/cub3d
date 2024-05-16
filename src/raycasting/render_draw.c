@@ -6,12 +6,14 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:25:21 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/04/25 00:27:45 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/16 23:26:52 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
+// selects the appropriate wall texture based on ray direction and hit distance.
+// handles if hit was on a horizontal or vertical wall and the facing direction.
 mlx_texture_t	*cub_select_texture(t_mlx *mlx, t_ray *ray, \
 	double horz_hit_distance, double vert_hit_distance)
 {
@@ -31,6 +33,12 @@ mlx_texture_t	*cub_select_texture(t_mlx *mlx, t_ray *ray, \
 	}
 }
 
+// Converts a color from ABGR format to RGBA format.
+// Rearranges the bytes to move:
+// - Alpha to the most significant byte
+// - Blue to the second most significant byte
+// - Green to the third most significant byte
+// - Red to the least significant byte
 int	cub_color_to_rgba(int color)
 {
 	return (((color & 0xFF) << 24)
@@ -39,6 +47,9 @@ int	cub_color_to_rgba(int color)
 		| ((color & 0xFF000000) >> 24));
 }
 
+// 1. locates where on the texture the ray hits.
+// 2. stretches or compresses the parsed wall texture to fit the wall slice.
+// 3. copies the texture pixels to the screen/image to render the wall slice.
 void	cub_draw_wall(t_mlx *mlx, t_ray *ray)
 {
 	int		texture_x;
@@ -64,6 +75,9 @@ void	cub_draw_wall(t_mlx *mlx, t_ray *ray)
 	}
 }
 
+// draws the wall on the image/screen at the calculated position and height.
+// fills the ceiling color on every pixel above the wall and draws the floor
+// color on the pixels under the wall.
 void	cub_draw_ray(t_mlx *mlx, t_ray *ray)
 {
 	int	y;
