@@ -6,18 +6,21 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:29:04 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/10 17:15:00 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/16 22:34:17 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
+// calculates the distance between two points.
+// (using 'Euclidean distance formula')
 double	cub_calc_distance_between_points(double x1, double y1, double x2, \
 	double y2)
 {
 	return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
 }
 
+// checks if a given point is inside a wall based on the map.
 int	cub_is_wall(t_mlx *mlx, int x, int y)
 {
 	int	map_grid_x;
@@ -33,6 +36,9 @@ int	cub_is_wall(t_mlx *mlx, int x, int y)
 	return (0);
 }
 
+// uses the closest intersection distance to calculate the height of the wall.
+// also counters the fish-eye effect by adjusting the distance based on
+// the angle difference from the player's view direction/FOV.
 void	cub_calculate_wall_position_and_height(t_mlx *mlx, t_ray *ray)
 {
 	ray->texture = cub_select_texture(mlx, ray, ray->horz_hit_distance, \

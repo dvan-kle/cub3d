@@ -6,12 +6,17 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 17:30:23 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 14:41:20 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/16 22:37:20 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
+// casts a single ray, calculates collisions with walls, determines wall
+// position and height, and draws the ray/wall.
+// - ray is facing down if angle is between 0 and 180 degrees.
+// - ray is facing right if angle is less than (90 degrees) or greater than
+//   (270 degrees).
 void	cub_cast_single_ray(t_mlx *mlx, t_ray *ray)
 {
 	ray->horz_hit_x = 0;
@@ -25,6 +30,8 @@ void	cub_cast_single_ray(t_mlx *mlx, t_ray *ray)
 	cub_draw_ray(mlx, ray);
 }
 
+// loops through each position on the given screen size, casting rays across
+// the players FOV to render the 3D illusion.
 void	cub_cast_rays(t_mlx *mlx)
 {
 	t_ray	ray;
