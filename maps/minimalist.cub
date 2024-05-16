@@ -1,7 +1,7 @@
-NO ./textures/texture1.png
-SO ./textures/texture2.png
-WE ./textures/texture3.png
-EA ./textures/texture4.png
+NO ./textures/bricks.png
+SO ./textures/bricks.png
+WE ./textures/bricks.png
+EA ./textures/bricks.png
 
 F 188, 184, 183
 C 21, 33, 36
