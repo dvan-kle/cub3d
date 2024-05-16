@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:51:31 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 13:29:55 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/16 15:19:34 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,6 @@ void	cub_finalize_map(t_map *map, int height, int max_width)
 	map->south_texture = mlx_load_png(map->id_so);
 	map->west_texture = mlx_load_png(map->id_we);
 	map->east_texture = mlx_load_png(map->id_ea);
-	if (!map->north_texture || !map->south_texture || !map->west_texture
-		|| !map->east_texture)
-		exit(1);
 	map->color_ceiling = cub_parse_rgb_string_to_hex(map->id_c);
 	map->color_floor = cub_parse_rgb_string_to_hex(map->id_f);
 	map->field[height] = NULL;

@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:50:42 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 14:50:56 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/16 15:19:15 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ unsigned int	cub_parse_rgb_string_to_hex(char *rgb_string)
 	unsigned int	hex_color;
 	int				i;
 
+	i = 0;
 	rgb_parts = ft_split(rgb_string, ',');
 	if (!rgb_parts)
 		return (0);
 	check_digits_rgb(rgb_parts);
 	hex_color = cub_rgb_to_hex(ft_atoi(rgb_parts[0]), ft_atoi(rgb_parts[1]),
 			ft_atoi(rgb_parts[2]));
-	i = 0;
 	while (rgb_parts[i] != NULL)
 	{
 		free(rgb_parts[i]);
