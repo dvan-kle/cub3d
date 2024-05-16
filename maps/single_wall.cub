@@ -1,1 +1,11 @@
-1
+NO ./textures/bricks.png
+SO ./textures/bricks.png
+WE ./textures/bricks.png
+EA ./textures/bricks.png
+
+F 188, 184, 183
+C 21, 33, 36
+
+111111111111111111111111
+1E0000000000000000000001
+111111111111111111111111

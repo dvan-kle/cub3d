@@ -5,7 +5,15 @@ LIBFT	:= ./lib/libft/libft.a
 GNL		:= ./lib/get_next_line/get_next_line.a
 
 HEADERS	:= -I ./include -I $(LIBMLX)/include 
-LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm
+
+UNAME_S := $(shell uname -s)
+
+ifeq ($(UNAME_S),Linux)
+    LIBS := $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw -pthread -lm
+else ifeq ($(UNAME_S),Darwin)
+    LIBS := $(LIBMLX)/build/libmlx42.a -ldl `pkg-config --libs glfw3` -pthread -lm
+endif
+
 SRCS := \
 	src/main/main.c \
 	src/map/map_border_validator.c \
@@ -15,6 +23,7 @@ SRCS := \
 	src/map/map_player.c \
 	src/map/map_processing_utils.c \
 	src/map/map_setup.c \
+	src/map/map_trim_lines.c \
 	src/map/map_validate.c \
 	src/movement/key_check.c \
 	src/movement/move.c \

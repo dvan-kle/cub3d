@@ -6,15 +6,39 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:50:42 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/04/03 14:50:53 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/16 14:50:56 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
+
 int	cub_rgb_to_hex(int r, int g, int b)
 {
 	return (r << 24 | g << 16 | b << 8 | 255 << 0);
+}
+
+void	check_digits_rgb(char **rgb_parts)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (rgb_parts[i] != NULL)
+	{
+		j = 0;
+		while (rgb_parts[i][j] != '\0')
+		{
+			if (!ft_isdigit(rgb_parts[i][j]) && rgb_parts[i][j] != ' ')
+				cub_error(1, "Error: Invalid RGB value\n");
+			j++;
+		}
+		if (ft_atoi(rgb_parts[i]) < 0 || ft_atoi(rgb_parts[i]) > 255)
+			cub_error(1, "Error: Invalid RGB value\n");
+		i++;
+		if (i > 3)
+			cub_error(1, "Error: Invalid RGB value\n");
+	}
 }
 
 unsigned int	cub_parse_rgb_string_to_hex(char *rgb_string)
@@ -26,6 +50,7 @@ unsigned int	cub_parse_rgb_string_to_hex(char *rgb_string)
 	rgb_parts = ft_split(rgb_string, ',');
 	if (!rgb_parts)
 		return (0);
+	check_digits_rgb(rgb_parts);
 	hex_color = cub_rgb_to_hex(ft_atoi(rgb_parts[0]), ft_atoi(rgb_parts[1]),
 			ft_atoi(rgb_parts[2]));
 	i = 0;
