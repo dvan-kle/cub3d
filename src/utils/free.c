@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 23:27:32 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 16:41:23 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/16 15:08:00 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void	cub_exit(t_mlx *mlx)
 	free(mlx->map->field);
 	free(mlx->map);
 	free(mlx->player);
+	mlx_delete_texture(mlx->map->north_texture);
+	mlx_delete_texture(mlx->map->south_texture);
+	mlx_delete_texture(mlx->map->west_texture);
+	mlx_delete_texture(mlx->map->east_texture);
 	mlx_delete_image(mlx->mlx_p, mlx->img);
 	mlx_close_window(mlx->mlx_p);
 	mlx_terminate(mlx->mlx_p);
