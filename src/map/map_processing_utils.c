@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:52:36 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 15:43:49 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 15:48:58 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	cub_fill_map(int fd, t_map *map, int start_map)
 	i = 0;
 	j = 0;
 	line = get_next_line(fd);
-	map->field = malloc(sizeof(char *) * (map->height + 1)); // Allocate enough space for all lines and a NULL terminator
+	map->field = malloc(sizeof(char *) * (map->height + 1));
 	if (!map->field)
 		cub_error(1, "Error: Memory allocation failed for map->field.\n");
 	while (line)
@@ -96,10 +96,10 @@ void	cub_fill_map(int fd, t_map *map, int start_map)
 		}
 		else
 		{
-			free(line); // Free lines that are not part of the map
+			free(line);
 		}
 		line = get_next_line(fd);
 		j++;
 	}
-	map->field[i] = NULL; // Null-terminate the field array
+	map->field[i] = NULL;
 }

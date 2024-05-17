@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:51:31 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 15:30:27 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 15:48:44 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,6 @@ t_map	*cub_init_map_and_open_file(char *file, int *fd, int *fd2)
 	if (!map || *fd2 < 0)
 		cub_error(1, "Error: Initialization or File Opening Failed.\n");
 	return (map);
-}
-
-void	cub_allocate_map_field(t_map *map)
-{
-	map->field = ft_calloc(1, sizeof(char *));
-	if (!map->field)
-		cub_error(1, "Error: Memory allocation failed for map field.\n");
 }
 
 void	free_map_ids(t_map *map)

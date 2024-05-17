@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 12:02:26 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 15:43:00 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 15:50:50 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,10 @@ t_map	*cub_load_map_values(char *file)
 
 	start_map = 0;
 	map = cub_init_map_and_open_file(file, &fd, &fd2);
-	cub_allocate_map_field(map); // This function should allocate enough space for identifiers
 	cub_process_lines(fd, map, &start_map);
 	cub_fill_map(fd2, map, start_map);
 	close(fd);
 	close(fd2);
-	cub_finalize_map(map); // Adjust based on the finalized height and width
-
-	int i = 0;
-	while (map->field[i])
-	{
-		printf("%s", map->field[i]);
-		i++;
-	}
+	cub_finalize_map(map);
 	return (map);
 }
