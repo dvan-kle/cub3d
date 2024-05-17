@@ -6,16 +6,16 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:24:32 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 23:35:10 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 10:29:48 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-void	cub_init_horz_ray_info(t_mlx *mlx, t_ray *ray, t_ray_info *info)
+void	cub_init_horz_ray_info(t_ray *ray, t_ray_info *info)
 {
-	info->ystep = mlx->map->pixel_height_per_square;
-	info->xstep = mlx->map->pixel_height_per_square / tan(ray->ray_angle);
+	info->ystep = BLOCK_SIZE;
+	info->xstep = BLOCK_SIZE / tan(ray->ray_angle);
 	if (ray->is_ray_facing_down)
 		info->ystep *= 1;
 	else
@@ -30,9 +30,9 @@ void	cub_init_horz_intercepts(t_mlx *mlx, t_ray *ray, \
 	t_intercept *intercept, t_ray_info *info)
 {
 	intercept->yintercept = floor(mlx->player->pixel_y / \
-		mlx->map->pixel_height_per_square) * mlx->map->pixel_height_per_square;
+		BLOCK_SIZE) * BLOCK_SIZE;
 	if (ray->is_ray_facing_down)
-		intercept->yintercept += mlx->map->pixel_height_per_square;
+		intercept->yintercept += BLOCK_SIZE;
 	intercept->xintercept = mlx->player->pixel_x + (intercept->yintercept - \
 		mlx->player->pixel_y) / tan(ray->ray_angle);
 	info->next_horz_touch_x = intercept->xintercept;
@@ -46,9 +46,9 @@ double	cub_check_horz_walls_update_coords(t_mlx *mlx, t_ray *ray, \
 	double	horz_hit_y;
 
 	while (info->next_horz_touch_x >= 0 && info->next_horz_touch_x < \
-		mlx->map->width * mlx->map->pixel_width_per_square \
+		mlx->map->width * BLOCK_SIZE \
 		&& info->next_horz_touch_y >= 0 && info->next_horz_touch_y \
-		< mlx->map->height * mlx->map->pixel_height_per_square)
+		< mlx->map->height * BLOCK_SIZE)
 	{
 		if (ray->is_ray_facing_down)
 			adjusted_y = info->next_horz_touch_y;
@@ -72,7 +72,7 @@ double	cub_calculate_horizontal_collision(t_mlx *mlx, t_ray *ray)
 	t_ray_info	info;
 	t_intercept	intercept;
 
-	cub_init_horz_ray_info(mlx, ray, &info);
+	cub_init_horz_ray_info(ray, &info);
 	cub_init_horz_intercepts(mlx, ray, &intercept, &info);
 	return (cub_check_horz_walls_update_coords(mlx, ray, &info));
 }

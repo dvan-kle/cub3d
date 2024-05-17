@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:51:31 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 15:19:34 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/17 10:27:54 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ void	cub_finalize_map(t_map *map, int height, int max_width)
 	map->field[height] = NULL;
 	map->height = height;
 	map->width = max_width;
-	map->pixel_width_per_square = TILE_SIZE;
-	map->pixel_height_per_square = TILE_SIZE;
 	map->tile_size = cub_get_tile_size(map);
 	free_map_ids(map);
 }
