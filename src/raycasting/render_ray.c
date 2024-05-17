@@ -6,11 +6,23 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 17:30:23 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 10:16:26 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 12:32:18 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
+
+// - facing down when the ray is moving towards the bottom of the map
+// (positive y-direction).
+// - facing up when the ray is moving towards the top of the map
+// (negative y-direction).
+// - facing rightwhen the ray is moving towards the right side of the map
+// (positive x-direction).
+// - facing left when the ray is moving towards the left side of the map
+// (negative x-direction).
+
+// - horizontal walls extend horizontally across the map, parallel to the x-axis.
+// - vertical walls extend vertically across the map, parallel to the y-axis.
 
 // casts a single ray, calculates collisions with walls, determines wall
 // position and height, and draws the ray/wall.
