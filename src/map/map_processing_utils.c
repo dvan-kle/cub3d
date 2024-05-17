@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:52:36 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 16:03:43 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/17 16:08:35 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,7 @@ void	cub_fill_map(int fd, t_map *map, int start_map)
 	i = 0;
 	j = 0;
 	line = get_next_line(fd);
-	map->field = malloc(sizeof(char *) * (map->height + 1));
-	if (!map->field)
-		cub_error(1, "Error: Memory allocation failed for map->field.\n");
+	map->field = allocate_memory(sizeof(char *) * (map->height + 1));
 	while (line)
 	{
 		if (j >= start_map)
@@ -97,9 +95,7 @@ void	cub_fill_map(int fd, t_map *map, int start_map)
 			i++;
 		}
 		else
-		{
 			free(line);
-		}
 		line = get_next_line(fd);
 		j++;
 	}
