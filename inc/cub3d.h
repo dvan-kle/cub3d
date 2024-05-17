@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 11:52:59 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 12:47:16 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/17 12:48:21 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,6 @@ char			*cub_trim_whitespace(char *str);
 char			*cub_trim_first_whitespace(char *str);
 void			cub_process_lines(int fd, t_map *map);
 unsigned int	cub_parse_rgb_string_to_hex(char *rgb_string);
-int				cub_get_tile_size(t_map *map);
 
 // Movement:
 void			cub_check_key(mlx_key_data_t keydata, void *parsed_mlx);
