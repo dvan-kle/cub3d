@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:29:04 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 22:34:17 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 10:29:01 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	cub_is_wall(t_mlx *mlx, int x, int y)
 	int	map_grid_x;
 	int	map_grid_y;
 
-	map_grid_x = x / mlx->map->pixel_width_per_square;
-	map_grid_y = y / mlx->map->pixel_height_per_square;
+	map_grid_x = x / BLOCK_SIZE;
+	map_grid_y = y / BLOCK_SIZE;
 	if (map_grid_x < 0 || map_grid_x >= mlx->map->width || map_grid_y < 0 \
 		|| map_grid_y >= mlx->map->height)
 		return (1);
@@ -46,7 +46,7 @@ void	cub_calculate_wall_position_and_height(t_mlx *mlx, t_ray *ray)
 	ray->perp_distance = cub_min(ray->horz_hit_distance, \
 		ray->vert_hit_distance) * cos(ray->ray_angle - mlx->player->angle);
 	if (ray->perp_distance > 0)
-		ray->wall_slice_height = (TILE_SIZE / ray->perp_distance) \
+		ray->wall_slice_height = (BLOCK_SIZE / ray->perp_distance) \
 			* ray->distance_to_proj_plane;
 	else
 		ray->wall_slice_height = SCREEN_HEIGHT;

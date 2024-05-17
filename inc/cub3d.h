@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 11:52:59 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 23:39:27 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 10:28:15 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 # define SCREEN_WIDTH 1900
 # define SCREEN_HEIGHT 1000
-# define TILE_SIZE 64
+# define BLOCK_SIZE 64
 
 # define FOV 65
 # define ROTATION_SPEED 0.052
@@ -86,8 +86,6 @@ typedef struct s_map
 	mlx_texture_t	*west_texture;
 	int				color_floor;
 	int				color_ceiling;
-	int				pixel_width_per_square;
-	int				pixel_height_per_square;
 }	t_map;
 
 typedef struct s_check_map

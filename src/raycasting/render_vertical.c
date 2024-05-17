@@ -6,18 +6,18 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:24:00 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 17:19:26 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/17 10:30:10 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-void	cub_init_vert_ray_info(t_mlx *mlx, t_ray *ray, t_vert_ray_info *info)
+void	cub_init_vert_ray_info(t_ray *ray, t_vert_ray_info *info)
 {
-	info->xstep_vert = mlx->map->pixel_width_per_square;
+	info->xstep_vert = BLOCK_SIZE;
 	if (!ray->is_ray_facing_right)
 		info->xstep_vert *= -1;
-	info->ystep_vert = mlx->map->pixel_width_per_square * tan(ray->ray_angle);
+	info->ystep_vert = BLOCK_SIZE * tan(ray->ray_angle);
 	if (ray->is_ray_facing_down && info->ystep_vert < 0)
 		info->ystep_vert *= -1;
 	else if (!ray->is_ray_facing_down && info->ystep_vert > 0)
@@ -28,9 +28,9 @@ void	cub_init_vert_intercepts(t_mlx *mlx, t_ray *ray, \
 	t_vert_intercept *intercept, t_vert_ray_info *info)
 {
 	intercept->xintercept_vert = floor(mlx->player->pixel_x \
-		/ mlx->map->pixel_width_per_square) * mlx->map->pixel_width_per_square;
+		/ BLOCK_SIZE) * BLOCK_SIZE;
 	if (ray->is_ray_facing_right)
-		intercept->xintercept_vert += mlx->map->pixel_width_per_square;
+		intercept->xintercept_vert += BLOCK_SIZE;
 	intercept->yintercept_vert = mlx->player->pixel_y \
 		+ (intercept->xintercept_vert - mlx->player->pixel_x) \
 		* tan(ray->ray_angle);
@@ -45,9 +45,9 @@ double	cub_check_vert_walls_update_coords(t_mlx *mlx, t_ray *ray, \
 	double	vert_hit_x;
 
 	while (info->next_vert_touch_x >= 0 && info->next_vert_touch_x \
-		< mlx->map->width * mlx->map->pixel_width_per_square \
+		< mlx->map->width * BLOCK_SIZE \
 		&& info->next_vert_touch_y >= 0 && info->next_vert_touch_y \
-		< mlx->map->height * mlx->map->pixel_height_per_square)
+		< mlx->map->height * BLOCK_SIZE)
 	{
 		if (ray->is_ray_facing_right)
 			adjusted_x = info->next_vert_touch_x;
@@ -71,7 +71,7 @@ double	cub_calculate_vertical_collision(t_mlx *mlx, t_ray *ray)
 	t_vert_ray_info		info;
 	t_vert_intercept	intercept;
 
-	cub_init_vert_ray_info(mlx, ray, &info);
+	cub_init_vert_ray_info(ray, &info);
 	cub_init_vert_intercepts(mlx, ray, &intercept, &info);
 	return (cub_check_vert_walls_update_coords(mlx, ray, &info));
 }

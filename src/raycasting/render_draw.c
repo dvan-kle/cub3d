@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:25:21 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 23:26:52 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 10:29:15 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	cub_draw_wall(t_mlx *mlx, t_ray *ray)
 	int		y;
 	int		tex_y;
 
-	texture_x = (int)(fmod(ray->wall_hit_pos, TILE_SIZE) / TILE_SIZE * \
+	texture_x = (int)(fmod(ray->wall_hit_pos, BLOCK_SIZE) / BLOCK_SIZE * \
 		ray->texture->width);
 	texture_step = ray->texture->height / ray->wall_slice_height;
 	texture_pos = (ray->draw_start - SCREEN_HEIGHT / 2 + \

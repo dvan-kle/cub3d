@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 12:02:26 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 14:20:24 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/17 10:28:32 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	cub_set_player_start_position(t_mlx *mlx)
 {
-	mlx->player->pixel_x = mlx->map->player_start_x * TILE_SIZE \
-		+ (TILE_SIZE / 2);
-	mlx->player->pixel_y = mlx->map->player_start_y * TILE_SIZE \
-		+ (TILE_SIZE / 2);
+	mlx->player->pixel_x = mlx->map->player_start_x * BLOCK_SIZE \
+		+ (BLOCK_SIZE / 2);
+	mlx->player->pixel_y = mlx->map->player_start_y * BLOCK_SIZE \
+		+ (BLOCK_SIZE / 2);
 	if (mlx->player->direction == 'N')
 		mlx->player->angle = 3 * M_PI / 2;
 	if (mlx->player->direction == 'E')
