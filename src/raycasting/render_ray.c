@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 17:30:23 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 12:32:18 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 12:52:16 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 // - facing left when the ray is moving towards the left side of the map
 // (negative x-direction).
 
-// - horizontal walls extend horizontally across the map, parallel to the x-axis.
+// - horizontal walls extend horizontally across the map, 
+//  	parallel to the x-axis.
 // - vertical walls extend vertically across the map, parallel to the y-axis.
 
 // casts a single ray, calculates collisions with walls, determines wall
