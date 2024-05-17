@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:52:36 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 13:43:17 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/17 15:48:58 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,44 +42,64 @@ void	cub_store_identifier_value(char *line, t_map *map)
 	free(new_line);
 }
 
-void	cub_process_map_line(char *line, t_map *map, int *i, int *max_width)
-{
-	char	**temp;
-	int		line_length;
-
-	temp = memory_realloc(map->field, (*i + 2) * sizeof(char *));
-	if (!temp)
-		cub_error(1, "Error: Memory reallocation failed for map line.\n");
-	map->field = temp;
-	map->field[(*i)++] = line;
-	line_length = ft_strlen(line);
-	if (line_length > *max_width)
-		*max_width = line_length;
-}
-
-void	cub_process_lines(int fd, t_map *map)
+void	cub_process_lines(int fd, t_map *map, int *start_map)
 {
 	char	*line;
-	int		max_width;
+	int		line_length;
 	int		i;
 
-	max_width = 0;
 	i = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
-		if (map->id_no && map->id_so && map->id_we && map->id_ea && map->id_f
-			&& map->id_c)
-			cub_process_map_line(line, map, &i, &max_width);
+		if (map->id_no && map->id_so && map->id_we && map->id_ea && map->id_f && map->id_c)
+		{
+			if (*start_map == 0)
+				*start_map = i;
+			line_length = ft_strlen(line);
+			if (line_length > map->width)
+				map->width = line_length;
+			map->height++;
+			free(line); // Freeing the line as we only count its length
+		}
 		else
 		{
 			cub_store_identifier_value(line, map);
 			free(line);
 		}
 		line = get_next_line(fd);
+		i++;
 	}
-	if (!map->id_no || !map->id_so || !map->id_we || !map->id_ea || !map->id_f
-		|| !map->id_c || !map->field)
+	if (!map->id_no || !map->id_so || !map->id_we || !map->id_ea || !map->id_f || !map->id_c)
 		cub_error(1, "Error: Map missing one or more identifier.\n");
-	cub_finalize_map(map, i, max_width);
+}
+
+
+void	cub_fill_map(int fd, t_map *map, int start_map)
+{
+	char	*line;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	line = get_next_line(fd);
+	map->field = malloc(sizeof(char *) * (map->height + 1));
+	if (!map->field)
+		cub_error(1, "Error: Memory allocation failed for map->field.\n");
+	while (line)
+	{
+		if (j >= start_map)
+		{
+			map->field[i] = line;
+			i++;
+		}
+		else
+		{
+			free(line);
+		}
+		line = get_next_line(fd);
+		j++;
+	}
+	map->field[i] = NULL;
 }
