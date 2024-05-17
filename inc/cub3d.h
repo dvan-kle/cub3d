@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 11:52:59 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 10:28:15 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 12:47:16 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ typedef struct s_map
 	int				player_start_y;
 	int				width;
 	int				height;
-	int				tile_size;
 	char			*id_no;
 	char			*id_so;
 	char			*id_ea;
