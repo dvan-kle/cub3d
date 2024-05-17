@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:52:36 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 15:48:58 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 16:03:43 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,28 @@ void	cub_store_identifier_value(char *line, t_map *map)
 	free(new_line);
 }
 
+void	cub_line(t_map *map, char *line, int *start_map, int i)
+{
+	if (*start_map == 0)
+		*start_map = i;
+	if ((int)ft_strlen(line) > map->width)
+		map->width = (int)ft_strlen(line);
+	map->height++;
+	free(line);
+}
+
 void	cub_process_lines(int fd, t_map *map, int *start_map)
 {
 	char	*line;
-	int		line_length;
 	int		i;
 
 	i = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
-		if (map->id_no && map->id_so && map->id_we && map->id_ea && map->id_f && map->id_c)
-		{
-			if (*start_map == 0)
-				*start_map = i;
-			line_length = ft_strlen(line);
-			if (line_length > map->width)
-				map->width = line_length;
-			map->height++;
-			free(line); // Freeing the line as we only count its length
-		}
+		if (map->id_no && map->id_so && map->id_we && map->id_ea
+			&& map->id_f && map->id_c)
+			cub_line(map, line, start_map, i);
 		else
 		{
 			cub_store_identifier_value(line, map);
@@ -70,10 +72,10 @@ void	cub_process_lines(int fd, t_map *map, int *start_map)
 		line = get_next_line(fd);
 		i++;
 	}
-	if (!map->id_no || !map->id_so || !map->id_we || !map->id_ea || !map->id_f || !map->id_c)
+	if (!map->id_no || !map->id_so || !map->id_we || !map->id_ea
+		|| !map->id_f || !map->id_c)
 		cub_error(1, "Error: Map missing one or more identifier.\n");
 }
-
 
 void	cub_fill_map(int fd, t_map *map, int start_map)
 {

@@ -6,7 +6,7 @@
 /*   By: tvan-bee <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 12:14:03 by tvan-bee      #+#    #+#                 */
-/*   Updated: 2022/10/14 12:14:17 by tvan-bee      ########   odam.nl         */
+/*   Updated: 2024/05/17 16:04:58 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;
 
-	// If the value is equal to the smallest possible int it writes the value with
+	// If the value is 
+	// equal to the smallest possible int it writes the value with
 	// the given file descriptor.
 	if (n == -2147483648)
 		write(fd, "-2147483648", 11);

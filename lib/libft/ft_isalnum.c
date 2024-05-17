@@ -6,7 +6,7 @@
 /*   By: tvan-bee <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/10 16:55:07 by tvan-bee      #+#    #+#                 */
-/*   Updated: 2022/10/10 16:55:08 by tvan-bee      ########   odam.nl         */
+/*   Updated: 2024/05/17 16:04:42 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ RETURN VALUES
 /*
 int	ft_isalnum(int c)
 {
-	// Checks between '0' and '9' or 'A' and 'Z' or 'a' and 'z' (see ascii decimal).
+	// Checks between '0' and '9' or 'A' a
+	// nd 'Z' or 'a' and 'z' (see ascii decimal).
 	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 		// True.
 		return (1);

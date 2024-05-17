@@ -6,7 +6,7 @@
 /*   By: tvan-bee <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 11:43:00 by tvan-bee      #+#    #+#                 */
-/*   Updated: 2022/10/13 11:43:18 by tvan-bee      ########   odam.nl         */
+/*   Updated: 2024/05/17 16:05:24 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ PARAMETERS
 				room at the end.
 
 RETURN VALUES
-	strlcat() function return the total length of the string they tried to create.
+	strlcat() function return the total l
+	ength of the string they tried to create.
 	For strlcat() that means the initial length of dst plus the length of src.
 
     If the return value is >= dstsize, the output string has been truncated.
@@ -69,12 +70,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		// the current size of 'dst' is not bigger than 'dstsize'.
 		while (src[j] && (dst_len + j) < dstsize)
 			dst[i++] = src[j++];
-		// Overwrites the last added char with NULL terminator if there is no enough
+		// Overwrites the last added
+		// char with NULL terminator if there is no enough
 		// room for 'src' added to 'dst'.
 		if ((dst_len + j) == dstsize && dst_len < dstsize)
 			dst[--i] = '\0';
 		else
-			// Adds the terminator at the end of the string if there is enough room.
+			// Adds the terminator at the 
+			end of the string if there is enough room.
 			dst[i] = '\0';
 		// Returns length of both parameters.
 		return (src_len + dst_len);
