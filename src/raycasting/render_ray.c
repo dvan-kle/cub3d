@@ -6,30 +6,23 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 17:30:23 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 11:50:55 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/17 12:32:18 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-/*
-Facing Direction: This refers to the direction a ray is traveling relative to
-the player's position. In the context of a 2D map:
-- Facing Down: The ray is moving towards the bottom of the map
-	(positive y-direction).
-- Facing Up: The ray is moving towards the top of the map
-	(negative y-direction).
-- Facing Right: The ray is moving towards the right side of the map
-	(positive x-direction).
-- Facing Left: The ray is moving towards the left side of the map
-	(negative x-direction).
+// - facing down when the ray is moving towards the bottom of the map
+// (positive y-direction).
+// - facing up when the ray is moving towards the top of the map
+// (negative y-direction).
+// - facing rightwhen the ray is moving towards the right side of the map
+// (positive x-direction).
+// - facing left when the ray is moving towards the left side of the map
+// (negative x-direction).
 
-Horizontal and Vertical Walls
-- Horizontal Walls: Walls that extend horizontally across the map, parallel to
-	the x-axis.
-- Vertical Walls: Walls that extend vertically across the map, parallel to the
-	y-axis.
-*/
+// - horizontal walls extend horizontally across the map, parallel to the x-axis.
+// - vertical walls extend vertically across the map, parallel to the y-axis.
 
 // casts a single ray, calculates collisions with walls, determines wall
 // position and height, and draws the ray/wall.
