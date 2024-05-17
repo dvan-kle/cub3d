@@ -1,5 +1,4 @@
 # Todo
-- Leaks.
 - Edgecases.
 - Check malloc protections.
 - Check forbidden functions.
