@@ -6,12 +6,14 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:24:32 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 10:29:48 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 11:47:40 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
+// initializes step sizes for horizontal ray intersections based on current ray
+// direction.
 void	cub_init_horz_ray_info(t_ray *ray, t_ray_info *info)
 {
 	info->ystep = BLOCK_SIZE;
@@ -26,6 +28,9 @@ void	cub_init_horz_ray_info(t_ray *ray, t_ray_info *info)
 		info->xstep *= -1;
 }
 
+// calculates the initial intersection point for the ray's first interaction
+// with horizontal grid lines, setting the starting point for checking wall
+// collisions.
 void	cub_init_horz_intercepts(t_mlx *mlx, t_ray *ray, \
 	t_intercept *intercept, t_ray_info *info)
 {
@@ -39,6 +44,9 @@ void	cub_init_horz_intercepts(t_mlx *mlx, t_ray *ray, \
 	info->next_horz_touch_y = intercept->yintercept;
 }
 
+// iterates through horizontal intersections. If a wall is found, it calculates
+// the distance from the player to the intersection point. If no wall is found,
+// it returns infinity to indicate no collision.
 double	cub_check_horz_walls_update_coords(t_mlx *mlx, t_ray *ray, \
 	t_ray_info *info)
 {
@@ -67,6 +75,7 @@ double	cub_check_horz_walls_update_coords(t_mlx *mlx, t_ray *ray, \
 	return (INFINITY);
 }
 
+// calculates the distance to the nearest horizontal wall collision.
 double	cub_calculate_horizontal_collision(t_mlx *mlx, t_ray *ray)
 {
 	t_ray_info	info;
