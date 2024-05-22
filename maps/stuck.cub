@@ -1,0 +1,11 @@
+NO ./textures/temple.png
+SO ./textures/temple.png
+WE ./textures/dungeon.png
+EA ./textures/dungeon.png
+
+F 188, 184, 183
+C 21, 33, 36
+
+ 1
+1N1
+ 1

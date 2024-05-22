@@ -1,3 +1,11 @@
+NO ./textures/dungeon.png
+SO ./textures/dungeon.png
+WE ./textures/dungeon.png
+EA ./textures/dungeon.png
+
+F 188, 184, 183
+C 37, 33, 36
+
 11111111111
 1000E000T01
 11111111111

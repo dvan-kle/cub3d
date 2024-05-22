@@ -1,7 +1,7 @@
-NO ./textures/texture9.png
-SO ./textures/texture9.png
-WE ./textures/texture9.png
-EA ./textures/texture9.png
+NO ./textures/doge.png
+SO ./textures/doge.png
+WE ./textures/doge.png
+EA ./textures/doge.png
 
 F 255,255,255
 C 255,255,255

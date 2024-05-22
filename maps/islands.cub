@@ -1,7 +1,7 @@
-NO ./textures/texture1.png
-SO ./textures/texture4.png
-WE ./textures/texture3.png
-EA ./textures/texture2.png
+NO ./textures/dungeon.png
+SO ./textures/temple.png
+WE ./textures/dungeon.png
+EA ./textures/temple.png
 
 F 188, 184, 183
 C 37, 33, 36
@@ -16,6 +16,13 @@ C 37, 33, 36
                                                          1111        1
 
 
+
+
              1                 111
                               1001
                                11
+
+
+
+
+

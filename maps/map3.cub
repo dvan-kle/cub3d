@@ -1,3 +1,11 @@
+NO ./textures/temple.png
+SO ./textures/temple.png
+WE ./textures/dungeon.png
+EA ./textures/dungeon.png
+
+F 188, 184, 183
+C 37, 33, 36
+
 1111111111111111111111111
 1000000000000000000100001
 1001000000000S00000000001

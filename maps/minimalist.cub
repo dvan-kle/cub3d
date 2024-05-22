@@ -1,7 +1,7 @@
-NO ./textures/bricks.png
-SO ./textures/bricks.png
-WE ./textures/bricks.png
-EA ./textures/bricks.png
+NO ./textures/wall1.png
+SO ./textures/wall2.png
+WE ./textures/wall3.png
+EA ./textures/wall4.png
 
 F 188, 184, 183
 C 21, 33, 36
@@ -20,7 +20,3 @@ C 21, 33, 36
 110000011101010111110111101111
 11110111 1110101 101111010001
 11111111 1111111 111111111111
-
-
-
-

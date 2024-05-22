@@ -1,0 +1,7 @@
+NO ./textures/wall1.png
+SO ./textures/wall2.png
+WE ./textures/wall3.png
+EA ./textures/wall4.png
+
+F 188, 184, 183
+C 21, 33, 36

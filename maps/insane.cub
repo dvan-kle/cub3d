@@ -1,7 +1,7 @@
-NO ./textures/codam3.png
-SO ./textures/codam3.png
-WE ./textures/codam3.png
-EA ./textures/codam3.png
+NO ./textures/temple.png
+SO ./textures/temple.png
+WE ./textures/temple.png
+EA ./textures/temple.png
 
 F 188, 184, 183
 C 37, 33, 36
