@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:52:36 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/22 12:26:41 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 12:45:07 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,11 @@ void	cub_store_identifier_value(char *line, t_map *map)
 		map->id_c = cub_extract_value(new_line);
 	else
 	{
-		free(new_line);
-		cub_error(1, "Error: Invalid identifier.\n");
+		if (cub_check_empty_line(new_line) == 1)
+		{
+			free(new_line);
+			cub_error(1, "Error: Invalid identifier.\n");
+		}
 	}
 	free(new_line);
 }

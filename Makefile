@@ -22,6 +22,7 @@ SRCS := \
 	src/map/map_load_values.c \
 	src/map/map_player.c \
 	src/map/map_processing_utils.c \
+	src/map/map_processing_utils2.c \
 	src/map/map_setup.c \
 	src/map/map_trim_lines.c \
 	src/map/map_validate.c \
