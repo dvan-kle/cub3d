@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:52:36 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/22 13:25:17 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 13:56:26 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void	cub_fill_map(int fd, t_map *map, int start_map)
 	j = 0;
 	line = get_next_line(fd);
 	map->field = allocate_memory(sizeof(char *) * (map->height + 1));
+	if (map->height == 0)
+		cub_error(1, "Error\nMap is empty.\n");
 	while (line)
 	{
 		if (j >= start_map)
