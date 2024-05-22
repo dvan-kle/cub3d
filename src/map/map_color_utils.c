@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:50:42 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/22 13:15:13 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 13:29:38 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	check_digits_rgb(char **rgb_parts)
 		j = 0;
 		while (rgb_parts[i][j] != '\0')
 		{
-			if (!ft_isdigit(rgb_parts[i][j]) && rgb_parts[i][j] != ' ')
+			if (!ft_isdigit(rgb_parts[i][j]) \
+				&& ft_isspace(rgb_parts[i][j]) == 0)
 			{
 				free(rgb_parts);
 				cub_error(1, "Error\nInvalid RGB value\n");

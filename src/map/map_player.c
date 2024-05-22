@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/15 10:38:05 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 18:37:17 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/22 13:24:42 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	cub_decide_if_player_error(int count)
 {
 	if (count == 0)
-		cub_error(1, "Error: Missing player start position.\n");
+		cub_error(1, "Error\nMissing player start position.\n");
 	else if (count > 1)
-		cub_error(1, "Error: Multiple player start positions detected.\n");
+		cub_error(1, "Error\nMultiple player start positions detected.\n");
 	else
 		return ;
 }

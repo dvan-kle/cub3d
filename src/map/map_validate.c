@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 12:03:11 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 14:53:37 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 13:26:59 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	cub_is_cub_extension(char *file)
 	ext_len = ft_strlen(extension);
 	if (path_len < ext_len || !ft_strnstr(file + path_len - ext_len,
 			extension, path_len))
-		cub_error(1, "Error: The file doesn't have the '.cub' extension.\n");
+		cub_error(1, "Error\nThe file doesn't have the '.cub' extension.\n");
 }
 
 int	cub_validate_map(t_map *map)
@@ -65,8 +65,6 @@ int	cub_validate_map(t_map *map)
 
 	i = 0;
 	check_map = ft_calloc(1, sizeof(t_check_map));
-	if (check_map == NULL)
-		cub_error(1, "Error: Prevented memory error.\n");
 	cub_setup_map_checks(map, check_map);
 	cub_is_border_valid(check_map);
 	while (i < check_map->height)

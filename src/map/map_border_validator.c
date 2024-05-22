@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 11:53:14 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/15 18:32:59 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/22 13:23:14 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	cub_is_border_valid(t_check_map *check_map)
 			if (check_map->field[i][j] == '.')
 			{
 				if (cub_check_surroundings(check_map, i, j) == 1)
-					cub_error(1, "Error: Map must be closed by walls.\n");
+					cub_error(1, "Error\nMap must be closed by walls.\n");
 			}
 			j++;
 		}

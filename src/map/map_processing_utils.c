@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:52:36 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/22 12:45:07 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 13:25:17 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	cub_store_identifier_value(char *line, t_map *map)
 		if (cub_check_empty_line(new_line) == 1)
 		{
 			free(new_line);
-			cub_error(1, "Error: Invalid identifier.\n");
+			cub_error(1, "Error\nInvalid identifier.\n");
 		}
 	}
 	free(new_line);
@@ -82,7 +82,7 @@ void	cub_process_lines(int fd, t_map *map, int *start_map)
 	}
 	if (!map->id_no || !map->id_so || !map->id_we || !map->id_ea
 		|| !map->id_f || !map->id_c)
-		cub_error(1, "Error: Map missing one or more identifier.\n");
+		cub_error(1, "Error\nMap missing one or more identifier.\n");
 }
 
 void	cub_fill_map(int fd, t_map *map, int start_map)

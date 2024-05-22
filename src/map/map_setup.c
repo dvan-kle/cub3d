@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 12:20:59 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/16 14:23:02 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/22 13:25:39 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,6 @@ int	cub_setup_map_checks(t_map *map, t_check_map *check_map)
 	cub_set_mods(map, check_map);
 	check_map->field = (char **)allocate_memory(sizeof(char *)
 			* check_map->height);
-	if (!check_map->field)
-		cub_error(1, "Error: Prevented memory error.\n");
 	cub_set_dots(map, check_map);
 	return (0);
 }
