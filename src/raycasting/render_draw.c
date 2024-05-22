@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:25:21 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 10:29:15 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 15:59:38 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int	cub_color_to_rgba(int color)
 }
 
 // 1. locates where on the texture the ray hits.
-// 2. stretches or compresses the parsed wall texture to fit the wall slice.
+// 2. stretches or compresses the parsed wall (just math) texture to fit the
+//    wall slice.
 // 3. copies the texture pixels to the screen/image to render the wall slice.
 void	cub_draw_wall(t_mlx *mlx, t_ray *ray)
 {

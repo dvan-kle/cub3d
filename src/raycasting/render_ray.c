@@ -6,20 +6,20 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 17:30:23 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 12:52:16 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/22 16:46:42 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
 // - facing down when the ray is moving towards the bottom of the map
-// (positive y-direction).
+//      (positive y-direction).
 // - facing up when the ray is moving towards the top of the map
-// (negative y-direction).
+//      (negative y-direction).
 // - facing rightwhen the ray is moving towards the right side of the map
-// (positive x-direction).
+//      (positive x-direction).
 // - facing left when the ray is moving towards the left side of the map
-// (negative x-direction).
+//      (negative x-direction).
 
 // - horizontal walls extend horizontally across the map, 
 //  	parallel to the x-axis.
@@ -45,6 +45,13 @@ void	cub_cast_single_ray(t_mlx *mlx, t_ray *ray)
 
 // loops through each position on the given screen size, casting rays across
 // the players FOV to render the 3D illusion.
+//
+// - ray_angle initialises the first ray angle (leftmost ray).
+// - angle_increment calculates the angle increment between each ray. The FOV
+//   is divided by the screen width (number of vertical columns of pixels).
+//   (coverting using (M_PI / 180.0) to radians)
+// - "distance to the projection plane" helps calculate how tall an object
+//   should appear based on its distance from the player
 void	cub_cast_rays(t_mlx *mlx)
 {
 	t_ray	ray;
