@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/25 00:29:04 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 15:13:31 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/22 14:38:46 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	cub_is_wall(t_mlx *mlx, int x, int y)
 	map_grid_y = y / BLOCK_SIZE;
 	if (map_grid_x < 0 || map_grid_y < 0 || map_grid_y >= mlx->map->height)
 		return (1);
-	if (map_grid_x >= (int)ft_strlen(mlx->map->field[map_grid_y]))
+	if (map_grid_x >= mlx->map->row_lengths[map_grid_y])
 		return (1);
 	if (mlx->map->field[map_grid_y][map_grid_x] == '1')
 		return (1);

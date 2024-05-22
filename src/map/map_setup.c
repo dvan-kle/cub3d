@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 12:20:59 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/22 13:25:39 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 14:38:18 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,19 @@
 // 	}
 // }
 // cub_print_modified_map(check_map);
+
+void	cub_map_save_row_lengths(t_map *map)
+{
+	int	i;
+
+	map->row_lengths = (int *)allocate_memory(sizeof(int) * map->height);
+	i = 0;
+	while (i < map->height)
+	{
+		map->row_lengths[i] = ft_strlen(map->field[i]);
+		i++;
+	}
+}
 
 void	cub_set_mods(t_map *map, t_check_map *check_map)
 {

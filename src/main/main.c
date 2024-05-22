@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 11:53:17 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/17 15:50:20 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 14:38:35 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ void	cub_start_game(t_map *map)
 {
 	t_mlx	mlx;
 
+	cub_map_save_row_lengths(map);
 	mlx.map = map;
 	mlx.player = ft_calloc(1, sizeof(t_player));
 	mlx.key = ft_calloc(1, sizeof(t_key));
 	mlx.ray = ft_calloc(1, sizeof(t_ray));
-	mlx.mlx_p = mlx_init(SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D", 0);
 	cub_check_and_set_player(&mlx);
 	cub_set_player_start_position(&mlx);
+	mlx.mlx_p = mlx_init(SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D", 0);
 	mlx_loop_hook(mlx.mlx_p, &cub_game_loop, &mlx);
 	mlx_key_hook(mlx.mlx_p, &cub_check_key, &mlx);
 	mlx_loop(mlx.mlx_p);

@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 11:52:59 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/22 12:41:44 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 14:38:09 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_map
 	int				player_start_y;
 	int				width;
 	int				height;
+	int				*row_lengths;
 	char			*id_no;
 	char			*id_so;
 	char			*id_ea;
@@ -159,6 +160,7 @@ void			cub_process_lines(int fd, t_map *map, int *start_map);
 void			cub_fill_map(int fd, t_map *map, int start_map);
 unsigned int	cub_parse_rgb_string_to_hex(char *rgb_string);
 int				cub_check_empty_line(char *new_line);
+void			cub_map_save_row_lengths(t_map *map);
 
 // Movement:
 void			cub_check_key(mlx_key_data_t keydata, void *parsed_mlx);
