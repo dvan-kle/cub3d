@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.42.fr>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 13:52:34 by tvan-bee      #+#    #+#                 */
-/*   Updated: 2024/03/08 22:20:54 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 11:51:05 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*ft_read_file(int fd, char *buffer)
 	char	*new_buffer;
 	int		bytes;
 
-	new_buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	new_buffer = (char *)allocate_memory(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!new_buffer)
 		return (free(buffer), NULL);
 	bytes = 1;

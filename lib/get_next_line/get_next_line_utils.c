@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.42.fr>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 13:52:41 by tvan-bee      #+#    #+#                 */
-/*   Updated: 2024/03/08 22:25:05 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/22 11:51:22 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_gnl_substr(char *src, size_t len)
 	char	*dst;
 	size_t	i;
 
-	dst = (char *)malloc(sizeof(char) * (len + 1));
+	dst = (char *)allocate_memory(sizeof(char) * (len + 1));
 	if (!dst)
 		return (free(src), NULL);
 	i = 0;
@@ -70,7 +70,7 @@ char	*ft_gnl_strjoin(char *s1, char *s2)
 {
 	char	*buffer;
 
-	buffer = (char *)malloc(sizeof(char)
+	buffer = (char *)allocate_memory(sizeof(char)
 			* (ft_gnl_strlen(s1) + ft_gnl_strlen(s2) + 1));
 	if (!buffer)
 	{
