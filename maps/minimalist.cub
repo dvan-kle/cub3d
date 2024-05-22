@@ -1,7 +1,7 @@
-NO ./textures/wall1.png
-SO ./textures/wall2.png
-WE ./textures/wall3.png
-EA ./textures/wall4.png
+NO ./textures/wall5.png
+SO ./textures/wall6.png
+WE ./textures/wall7.png
+EA ./textures/wall8.png
 
 F 188, 184, 183
 C 21, 33, 36
