@@ -1,10 +1,10 @@
-NO ./textures/wall5.png
-SO ./textures/wall6.png
-WE ./textures/wall7.png
-EA ./textures/wall8.png
+NO ./textures/temple.png
+SO ./textures/temple.png
+WE ./textures/dungeon.png
+EA ./textures/dungeon.png
 
-F 188, 184, 183
-C 21, 33, 36
+F 32,150,32
+C 79, 170, 255
 
         1111111111111111111111111
         1000000000110000000000001
