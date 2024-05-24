@@ -6,7 +6,7 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 11:52:59 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/22 14:38:09 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/24 11:01:16 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,7 @@ void			cub_fill_map(int fd, t_map *map, int start_map);
 unsigned int	cub_parse_rgb_string_to_hex(char *rgb_string);
 int				cub_check_empty_line(char *new_line);
 void			cub_map_save_row_lengths(t_map *map);
+void			cub_assign_and_check(char *new_line, char **id);
 
 // Movement:
 void			cub_check_key(mlx_key_data_t keydata, void *parsed_mlx);

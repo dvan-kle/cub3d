@@ -6,21 +6,11 @@
 /*   By: trstn4 <trstn4@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/03 14:52:36 by trstn4        #+#    #+#                 */
-/*   Updated: 2024/05/22 13:56:26 by trstn4        ########   odam.nl         */
+/*   Updated: 2024/05/24 11:01:43 by trstn4        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
-
-char	*cub_extract_value(char *line)
-{
-	char	*value_start;
-
-	value_start = ft_strchr(line, ' ');
-	if (!value_start)
-		return (ft_strdup(""));
-	return (cub_trim_whitespace(value_start + 1));
-}
 
 void	cub_store_identifier_value(char *line, t_map *map)
 {
@@ -28,17 +18,17 @@ void	cub_store_identifier_value(char *line, t_map *map)
 
 	new_line = cub_trim_first_whitespace(line);
 	if (ft_strncmp(new_line, "NO", 2) == 0)
-		map->id_no = cub_extract_value(new_line);
+		cub_assign_and_check(new_line, &(map->id_no));
 	else if (ft_strncmp(new_line, "SO", 2) == 0)
-		map->id_so = cub_extract_value(new_line);
+		cub_assign_and_check(new_line, &(map->id_so));
 	else if (ft_strncmp(new_line, "WE", 2) == 0)
-		map->id_we = cub_extract_value(new_line);
+		cub_assign_and_check(new_line, &(map->id_we));
 	else if (ft_strncmp(new_line, "EA", 2) == 0)
-		map->id_ea = cub_extract_value(new_line);
+		cub_assign_and_check(new_line, &(map->id_ea));
 	else if (ft_strncmp(new_line, "F", 1) == 0)
-		map->id_f = cub_extract_value(new_line);
+		cub_assign_and_check(new_line, &(map->id_f));
 	else if (ft_strncmp(new_line, "C", 1) == 0)
-		map->id_c = cub_extract_value(new_line);
+		cub_assign_and_check(new_line, &(map->id_c));
 	else
 	{
 		if (cub_check_empty_line(new_line) == 1)
