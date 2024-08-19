@@ -1,6 +1,6 @@
 # Cub3D - A 3D Game Engine in C
 
-Welcome to **Cub3D**! This project is a 3D game engine inspired by the classic Wolfenstein 3D. It is written in C using the MiniLibX graphical library and serves as an introduction to basic raycasting techniques and 3D rendering.
+Welcome to **Cub3D**! This project is a 3D game engine inspired by the classic Wolfenstein 3D. It is written in C using the MLX42 graphical library and serves as an introduction to basic raycasting techniques and 3D rendering.
 
 ## Key Features
 
